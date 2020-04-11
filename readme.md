@@ -12,12 +12,12 @@ In order to build the image, you must have the
 [Docker](https://www.docker.com/) platform (>= Docker version 19.03.7)
 installed and the docker daemon running.
 
-Note: If running on Windows or MacOS ensure that you have at least 8GB
+Note: If running on Windows or Mac OS ensure that you have at least 8GB
 of RAM allocated to the docker process (see
-[here](https://docs.docker.com/docker-for-mac/#advanced) for MacOS and
+[here](https://docs.docker.com/docker-for-mac/#advanced) for Mac OS and
 [here](https://docs.docker.com/docker-for-windows/#advanced) for Windows).
 
-The source of this artefact script can be obtained from Github:
+The source of this artefact script can be obtained from GitHub:
 ```
 git clone https://github.com/Gopiandcode/ceramist-artefact.git
 ```
@@ -34,7 +34,7 @@ docker build --memory=8g -t ceramist:1.0.1 .
 Note: If the build fails with a `killed` message, this means that your
 docker process ran out of memory - please ensure that you have allowed
 it at least 8GB of ram (see [here](https://docs.docker.com/docker-for-mac/#advanced) for
-MacOS and [here](https://docs.docker.com/docker-for-windows/#advanced) for
+Mac OS and [here](https://docs.docker.com/docker-for-windows/#advanced) for
 Windows).
 
 
@@ -57,11 +57,11 @@ To browse the files within the image, first start a docker container from the im
 docker run --name ceramist --rm -it ceramist:1.01
 ```
 You should now be dropped into a shell with the working directory set to a folder containing the ceramist source code.
-From here you can explore the source code/build the coqdoc documenation (using `eval $(opam env) && make doc`, and the output will be placed into a html folder at the ceramist root).
+From here you can explore the source code/build the coqdoc documentation (using `eval $(opam env) && make doc`, and the output will be placed into a html folder at the ceramist root).
 
 If you wish to browse the files on your local machine, start up the
 docker container, using the command above, and *while it is still
-running (i.e don't close it)*, in a seperate shell, execute:
+running (i.e don't close it)*, in a separate shell, execute:
 
 ```
 docker cp  ceramist:/ceramist ./ceramist
@@ -206,13 +206,13 @@ in the source code:
   - name: countingbloomfilter_counter_prob
 
 
-## Builidng Locally
+## Building Locally
 If you wish to step through the proof interactively, we recommend you
 build the artefact locally.
 
 To do this, ensure that you have the latest version of
 [opam](https://opam.ocaml.org/) installed, and that it has been
-correctly initialized (running `opam init` and `eval $(opam env)`).
+correctly initialised (running `opam init` and `eval $(opam env)`).
 
 1. Add the coq-released repository.
 ```
