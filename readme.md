@@ -9,8 +9,8 @@ Ceramist proof scripts in a docker container.
 ## Prerequisites
 
 In order to build the image, you must have the
-[Docker](https://www.docker.com/) platform installed and the docker
-daemon running.
+[Docker](https://www.docker.com/) platform (>= Docker version 19.03.7)
+installed and the docker daemon running.
 
 The source of this artefact script can be obtained from Github:
 ```
@@ -38,14 +38,14 @@ COQC Structures/BlockedAMQ/BlockedAMQ.v
 make[1]: Leaving directory '/ceramist'
 ```
 
-At this point all the proofs in the artefact have been compiled and the docker image is read.
+At this point all the proofs in the artefact have been compiled and the docker image is ready.
 
-To browse the files within the container, first start the docker container:
+To browse the files within the image, first start a docker container from the image:
 ```
 docker run --name ceramist --rm -it ceramist:1.01
 ```
 You should now be dropped into a shell with the working directory set to a folder containing the ceramist source code.
-From here you can explore the source code/build the coqdoc documenation (using `make doc`, and the output will be placed into a html folder at the ceramist root).
+From here you can explore the source code/build the coqdoc documenation (using `eval $(opam env) && make doc`, and the output will be placed into a html folder at the ceramist root).
 
 If you wish to browse the files on your local machine, start up the
 docker container, using the command above, and *while it is still
@@ -108,8 +108,8 @@ The library is split into separate logical components by directory:
 Check out `Structures/Demo.v` for an example instantiation of the BlockedAMQ to derive Blocked Bloom filters, Counting Blocked bloom filters and Blocked Quotient filters.
 
 ## Theorems and Lemmas
-The following table maps the statements from the associated paper to
-statements in the source code:
+The following table maps the statements from the paper to statements
+in the source code:
 
 - *Theorem 3 (No False Negatives)* 
   - file: Structures/BloomFilter/BloomFilter_Probability.v
@@ -175,7 +175,7 @@ statements in the source code:
   - name: comp_possible_decompose, comp_possible_exists
   - note: first version for when plausiblility is an assumption, and
     the second version is for when the plausiblility is a goal
-- *Theorem 9 (Quotient filter False Positive Rate)
+- *Theorem 9 (Quotient filter False Positive Rate)**
   - file: Structures/QuotientFilter/QuotientFilter_Probability.v
   - line:  527
   - name: AMQ_false_positives_rate
@@ -198,9 +198,9 @@ statements in the source code:
 If you wish to step through the proof interactively, we recommend you
 build the artefact locally.
 
-To do this, ensure that you have [opam](https://opam.ocaml.org/)
-installed, and that it has been correctly initialized (running `opam
-init` and `eval $(opam env)`).
+To do this, ensure that you have the latest version of
+[opam](https://opam.ocaml.org/) installed, and that it has been
+correctly initialized (running `opam init` and `eval $(opam env)`).
 
 1. Add the coq-released repository.
 ```
@@ -208,7 +208,7 @@ opam repo add coq-released https://coq.inria.fr/opam/released
 opam update
 ```
 
-2. Install the dependencies for ceramist:
+2. Install the dependencies for ceramist (you may also be prompted to use `--unlock-base`):
 ```
 opam install -y --deps-only coq-ceramist.1.0.1
 ```
@@ -224,7 +224,7 @@ cd ./ceramist
 make
 ```
 
-5. (Optional) Build ocamldoc:
+5. (Optional) Build ocamldoc - the documentation will be placed into a  folder named `html` at the project root:
 ```
 make doc
 ```
