@@ -10,11 +10,12 @@ Ceramist proof scripts in a docker container.
 
 In order to build the image, you must have the
 [Docker](https://www.docker.com/) platform (>= Docker version 19.03.7)
-installed and the docker daemon running, and if on Windows/MacOS
-**ensure that you have at least 8GB of RAM allocated to the docker
-process (see here for
-[MacOS](https://docs.docker.com/docker-for-mac/#advanced) and here for
-[Windows](https://docs.docker.com/docker-for-mac/#advanced))**.
+installed and the docker daemon running.
+
+Note: If running on Windows or MacOS ensure that you have at least 8GB
+of RAM allocated to the docker process (see
+[here](https://docs.docker.com/docker-for-mac/#advanced) for MacOS and
+[here](https://docs.docker.com/docker-for-windows/#advanced) for Windows).
 
 The source of this artefact script can be obtained from Github:
 ```
@@ -32,9 +33,9 @@ docker build --memory=8g -t ceramist:1.0.1 .
 
 Note: If the build fails with a `killed` message, this means that your
 docker process ran out of memory - please ensure that you have allowed
-it at least 8GB of ram (see here for
-[MacOS](https://docs.docker.com/docker-for-mac/#advanced) and here for
-[Windows](https://docs.docker.com/docker-for-mac/#advanced)).
+it at least 8GB of ram (see [here](https://docs.docker.com/docker-for-mac/#advanced) for
+MacOS and [here](https://docs.docker.com/docker-for-windows/#advanced) for
+Windows).
 
 
 This will download all the project's dependencies and will compile the
