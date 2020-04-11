@@ -23,7 +23,7 @@ sources.
 
 Once you have the Docker daemon running, navigate to the root of this repository and run:
 ```
-docker build -t ceramist:1.0.1 .
+docker build --memory=8g -t ceramist:1.0.1 .
 ```
 
 This will download all the project's dependencies and will compile the
